@@ -1,7 +1,7 @@
 import { LocationIcon } from "@primer/octicons-react";
 import Image from "next/image";
 
-interface UserCard {
+interface UserCardProps {
   avatarUrl: string;
   fullname: string;
   username: string;
@@ -10,7 +10,7 @@ interface UserCard {
   bio: string;
 }
 
-export default function UserCard(props: UserCard) {
+export default function UserCard(props: UserCardProps) {
   const { avatarUrl, fullname, username, company, location, bio } = props;
 
   return (
@@ -35,9 +35,7 @@ export default function UserCard(props: UserCard) {
         <div className="flex flex-row items-center ">
           {/* <p className="text-md truncate w-1/3">{company || "--"}</p> */}
           <LocationIcon size={16} />
-          <p className="text-md text-slate-300 truncate w-2/3 ml-1">
-            {location || "--"}
-          </p>
+          <p className="text-md truncate w-2/3 ml-1">{location || "--"}</p>
         </div>
       </div>
     </div>
