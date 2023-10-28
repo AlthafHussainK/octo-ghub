@@ -21,11 +21,7 @@ export default async function Home() {
       <div className="w-10/12 mt-4 flex flex-row flex-wrap justify-center">
         {richUsersData.map((user: UserData) => (
           <div key={user.id} className="w-2/5 m-2 ">
-            <Link
-              href={{
-                pathname: `/${user.login}`,
-              }}
-            >
+            <Link href={`/${user.login}`}>
               <UserCard
                 avatarUrl={user.avatar_url}
                 fullname={user.name}
