@@ -2,6 +2,7 @@ import Image from "next/image";
 import BackButton from "../components/BackButton";
 import { getUserData } from "../lib/data";
 import { UserData } from "../lib/definitions";
+import ProfileCard from "../components/ProfileCard";
 
 export async function generateMetadata({
   params,
@@ -27,12 +28,23 @@ export default async function List({
   const userData: UserData = await getUserData(username);
 
   return (
-    <div>
+    <>
       <BackButton />
-      <h2>server rendered {params.username}</h2>
 
-      <h2>Profile of {userData.name}</h2>
-      <Image
+      <ProfileCard
+        fullname={userData.name}
+        username={userData.login}
+        avatarUrl={userData.avatar_url}
+        bio={userData.bio}
+        location={userData.location}
+        followers={userData.followers}
+        following={userData.following}
+        repos={userData.public_repos}
+        twitter={userData.twitter_username}
+        company={userData.company}
+      />
+
+      {/* <Image
         src={userData.avatar_url}
         width={100}
         height={100}
@@ -46,7 +58,7 @@ export default async function List({
       <p>{userData.followers}</p>
       <p>{userData.following}</p>
       <p>{userData.public_repos}</p>
-      <p>{userData.bio}</p>
-    </div>
+      <p>{userData.bio}</p> */}
+    </>
   );
 }

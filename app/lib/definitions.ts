@@ -13,6 +13,7 @@ export type UserData = {
   public_repos: number;
   followers: number;
   following: number;
+  twitter_username: string;
 };
 
 export type User = {
