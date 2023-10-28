@@ -35,17 +35,17 @@ export default function ProfileCard(props: ProfileCardProps) {
   } = props;
 
   return (
-    <div className="w-2/3 mx-auto">
-      <div className="flex justify-center relative z-10 ">
+    <div className="w-2/3 mx-auto ">
+      <div className="flex justify-center relative z-10  drop-shadow-2xl">
         <Image
-          style={{ borderRadius: "50%" }}
+          style={{ borderRadius: "50%", border: "1px rgb(55 65 81) solid" }}
           src={avatarUrl}
           width={250}
           height={250}
           alt="Avatar"
         />
       </div>
-      <div className="border text-center rounded-lg px-10 pb-12 space-y-2 pt-[100px] relative top-[-80px]">
+      <div className="drop-shadow-md bg-black/20 bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-80  border-gray-600 border text-center rounded-lg px-10 pb-12 space-y-2 pt-[100px] relative top-[-80px]">
         <p className="text-2xl font-bold">{fullname}</p>
         <p className="text-lg font-semibold text-slate-400">{username}</p>
         <p className="text-base">{bio}</p>
