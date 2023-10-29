@@ -16,7 +16,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={`${inter.className} antialiased p-8 bg-gradient-to-r from-slate-900 to-slate-700 `}
+      >
+        {children}
+      </body>
     </html>
   );
 }
