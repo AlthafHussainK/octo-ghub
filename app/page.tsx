@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { LogoGithubIcon } from "@primer/octicons-react";
-import UserCard from "./components/UserCard";
+import UserCard from "./components/user-card";
 import { getUsers, getUserData } from "./lib/data";
 import { UserData, User } from "./lib/definitions";
 

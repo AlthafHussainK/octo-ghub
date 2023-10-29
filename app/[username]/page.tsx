@@ -1,7 +1,7 @@
-import BackButton from "../components/BackButton";
+import BackButton from "../components/back-button";
 import { getUserData } from "../lib/data";
 import { UserData } from "../lib/definitions";
-import ProfileCard from "../components/ProfileCard";
+import ProfileCard from "../components/profile-card";
 
 export async function generateMetadata({
   params,
