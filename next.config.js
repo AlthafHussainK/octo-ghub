@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    optimizePackageImports: ["@primer/octicons-react"],
+  },
   images: {
     remotePatterns: [
       {
