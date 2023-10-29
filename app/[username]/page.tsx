@@ -3,6 +3,9 @@ import { getUserData } from "../lib/data";
 import { UserData } from "../lib/definitions";
 import ProfileCard from "../components/profile-card";
 
+import ProfileLoading from "./loading";
+import { Suspense } from "react";
+
 export async function generateMetadata({
   params,
 }: {
@@ -29,18 +32,20 @@ export default async function List({
   return (
     <>
       <BackButton />
-      <ProfileCard
-        fullname={userData.name}
-        username={userData.login}
-        avatarUrl={userData.avatar_url}
-        bio={userData.bio}
-        location={userData.location}
-        followers={userData.followers}
-        following={userData.following}
-        repos={userData.public_repos}
-        twitter={userData.twitter_username}
-        company={userData.company}
-      />
+      <Suspense fallback={<ProfileLoading />}>
+        <ProfileCard
+          fullname={userData.name}
+          username={userData.login}
+          avatarUrl={userData.avatar_url}
+          bio={userData.bio}
+          location={userData.location}
+          followers={userData.followers}
+          following={userData.following}
+          repos={userData.public_repos}
+          twitter={userData.twitter_username}
+          company={userData.company}
+        />
+      </Suspense>
     </>
   );
 }
