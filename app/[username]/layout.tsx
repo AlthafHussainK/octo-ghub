@@ -3,9 +3,5 @@ export default function ProfileLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <div className="p-4 flex flex-col h-screen bg-gradient-to-r from-slate-900 to-slate-700 ">
-      {children}
-    </div>
-  );
+  return <div className="p-4 flex flex-col h-screen">{children}</div>;
 }

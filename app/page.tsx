@@ -5,22 +5,21 @@ import { UserData, User } from "./lib/definitions";
 import UserCard from "./components/UserCard";
 
 export default async function Home() {
-  const data: Array<User> = await getUsers();
-  let richUsersData: Array<UserData> = [];
+  const data: User[] = await getUsers();
+  let richUsersData: UserData[] = [];
 
   if (data.length) {
     richUsersData = await Promise.all(
       data.map((user: User) => getUserData(user.login))
-    ).then((res) => res);
-    // TODO: res => res.json() ?
+    );
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between">
-      <h2>List of users from GitHub</h2>
-      <div className="w-10/12 mt-4 flex flex-row flex-wrap justify-center">
+    <div className="flex min-h-screen flex-col items-center justify-between px-0">
+      <h2 className="">List of users from GitHub</h2>
+      <div className=" my-4 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 ">
         {richUsersData.map((user: UserData) => (
-          <div key={user.id} className="w-2/5 m-2 ">
+          <div key={user.id} className="my-2 md:m-2 2xl:m-3 ">
             <Link href={`/${user.login}`}>
               <UserCard
                 avatarUrl={user.avatar_url}
