@@ -36,7 +36,6 @@ export default function UserCard(props: UserCardProps) {
           <p className="text-md text-slate-400 truncate">{username}</p>
         </div>
         <div className="flex flex-row items-center ">
-          {/* <p className="text-md truncate w-1/3">{company || "--"}</p> */}
           <LocationIcon size={16} />
           <p className="text-md truncate w-2/3 ml-1">{location || "--"}</p>
         </div>
