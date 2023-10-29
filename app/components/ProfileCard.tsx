@@ -19,6 +19,8 @@ interface ProfileCardProps {
   following: number;
   followers: number;
 }
+const cardBackground =
+  "drop-shadow-md bg-black/20 bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-80  border-gray-600 border rounded-lg";
 
 export default function ProfileCard(props: ProfileCardProps) {
   const {
@@ -49,7 +51,9 @@ export default function ProfileCard(props: ProfileCardProps) {
           alt="Avatar"
         />
       </div>
-      <div className="drop-shadow-md bg-black/20 bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-80  border-gray-600 border text-center rounded-lg md:px-10 pb-12 space-y-2 pt-[100px] relative top-[-80px]">
+      <div
+        className={`${cardBackground} text-center md:px-10 pb-12 space-y-2 pt-[100px] relative top-[-80px]`}
+      >
         <p className="text-2xl font-bold">{fullname}</p>
         <p className="text-lg font-semibold text-slate-400">{username}</p>
         <p className="text-base">{bio}</p>
