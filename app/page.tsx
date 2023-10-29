@@ -1,8 +1,8 @@
 import Link from "next/link";
+import { LogoGithubIcon } from "@primer/octicons-react";
+import UserCard from "./components/UserCard";
 import { getUsers, getUserData } from "./lib/data";
 import { UserData, User } from "./lib/definitions";
-import UserCard from "./components/UserCard";
-import { LogoGithubIcon } from "@primer/octicons-react";
 
 export default async function Home() {
   const data: User[] = await getUsers();
