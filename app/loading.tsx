@@ -1,4 +1,5 @@
 import { LogoGithubIcon } from "@primer/octicons-react";
+import Spinner from "./components/spinner";
 
 export default function Loading() {
   return (
@@ -7,7 +8,7 @@ export default function Loading() {
         <LogoGithubIcon size={32} /> Users
       </h2>
       <div className="flex flex-col my-auto space-y-2 text-center">
-        {/* <Spinner /> */}
+        <Spinner />
         <p>Loading...</p>
       </div>
     </div>
