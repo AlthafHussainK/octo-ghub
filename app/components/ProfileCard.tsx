@@ -36,9 +36,13 @@ export default function ProfileCard(props: ProfileCardProps) {
 
   return (
     <div className="w-2/3 mx-auto ">
-      <div className="flex justify-center relative z-10  drop-shadow-2xl">
+      <div className="flex justify-center relative z-10 ">
         <Image
-          style={{ borderRadius: "50%", border: "1px rgb(55 65 81) solid" }}
+          style={{
+            borderRadius: "50%",
+            border: "1px rgb(55 65 81) solid",
+            boxShadow: "0 0 10px 1px rgba(0, 0, 0, .25)",
+          }}
           src={avatarUrl}
           width={250}
           height={250}
