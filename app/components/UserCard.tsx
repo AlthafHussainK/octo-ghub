@@ -10,11 +10,14 @@ interface UserCardProps {
   bio: string;
 }
 
+const userCardBackground =
+  "border rounded-lg drop-shadow-md bg-black/20 bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-80  border-gray-600";
+
 export default function UserCard(props: UserCardProps) {
   const { avatarUrl, fullname, username, company, location, bio } = props;
 
   return (
-    <div className="p-4 flex flex-row gap-x-2 border rounded-lg drop-shadow-md bg-black/20 bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-80  border-gray-600  ">
+    <div className={`${userCardBackground} p-4 flex flex-row gap-x-2`}>
       <div className="w-1/6">
         <Image
           style={{ borderRadius: "50%" }}
@@ -33,7 +36,6 @@ export default function UserCard(props: UserCardProps) {
           <p className="text-md text-slate-400 truncate">{username}</p>
         </div>
         <div className="flex flex-row items-center ">
-          {/* <p className="text-md truncate w-1/3">{company || "--"}</p> */}
           <LocationIcon size={16} />
           <p className="text-md truncate w-2/3 ml-1">{location || "--"}</p>
         </div>

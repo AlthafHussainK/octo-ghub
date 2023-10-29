@@ -1,4 +1,3 @@
-import Image from "next/image";
 import BackButton from "../components/BackButton";
 import { getUserData } from "../lib/data";
 import { UserData } from "../lib/definitions";
@@ -30,7 +29,6 @@ export default async function List({
   return (
     <>
       <BackButton />
-
       <ProfileCard
         fullname={userData.name}
         username={userData.login}
@@ -43,22 +41,6 @@ export default async function List({
         twitter={userData.twitter_username}
         company={userData.company}
       />
-
-      {/* <Image
-        src={userData.avatar_url}
-        width={100}
-        height={100}
-        style={{ borderRadius: "50%", marginRight: "1em" }}
-        alt="Avatar Image"
-      />
-      <p>{userData.login}</p>
-      <p>{userData.avatar_url}</p>
-      <p>{userData.location}</p>
-      <p>{userData.company}</p>
-      <p>{userData.followers}</p>
-      <p>{userData.following}</p>
-      <p>{userData.public_repos}</p>
-      <p>{userData.bio}</p> */}
     </>
   );
 }
