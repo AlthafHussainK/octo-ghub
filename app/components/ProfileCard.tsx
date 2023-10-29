@@ -81,7 +81,7 @@ export default function ProfileCard(props: ProfileCardProps) {
           {twitter && (
             <div className="flex flex-row sm:w-1/2 justify-center fill-white">
               <TwitterIcon width={22} height={22} fill={"inherit"} />
-              <p className="text-base ml-2">@{twitter || "--"}</p>
+              <p className="text-base ml-2">@{twitter}</p>
             </div>
           )}
           <div className="flex flex-row sm:w-1/2 justify-center">
