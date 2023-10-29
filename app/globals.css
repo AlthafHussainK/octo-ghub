@@ -19,3 +19,10 @@
 body {
   color: rgb(255, 255, 255);
 }
+
+@media screen and (max-width: 320px) {
+  body {
+    min-width: 320px;
+    overflow-x: scroll;
+  }
+}
