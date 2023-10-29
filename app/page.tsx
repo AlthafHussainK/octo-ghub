@@ -5,14 +5,13 @@ import { UserData, User } from "./lib/definitions";
 import UserCard from "./components/UserCard";
 
 export default async function Home() {
-  const data: Array<User> = await getUsers();
-  let richUsersData: Array<UserData> = [];
+  const data: User[] = await getUsers();
+  let richUsersData: UserData[] = [];
 
   if (data.length) {
     richUsersData = await Promise.all(
       data.map((user: User) => getUserData(user.login))
-    ).then((res) => res);
-    // TODO: res => res.json() ?
+    );
   }
 
   return (
