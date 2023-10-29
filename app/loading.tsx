@@ -1,35 +1,16 @@
-import UserCardSkeleton from "./components/UserCardSkeleton";
+import Spinner from "./components/Spinner";
+import { LogoGithubIcon } from "@primer/octicons-react";
 
 export default function Loading() {
   return (
-    // <div className="flex min-h-screen flex-col items-center justify-between mt-10">
-    //   <div className=" my-4 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 ">
-    //     <div className="my-2 md:m-2 2xl:m-3 w-80 ">
-    //       <UserCardSkeleton />
-    //     </div>
-    //     <div className="my-2 md:m-2 2xl:m-3 w-80 ">
-    //       <UserCardSkeleton />
-    //     </div>
-    //     <div className="my-2 md:m-2 2xl:m-3 w-80 ">
-    //       <UserCardSkeleton />
-    //     </div>
-    //     <div className="my-2 md:m-2 2xl:m-3 w-80 ">
-    //       <UserCardSkeleton />
-    //     </div>
-    //     <div className="my-2 md:m-2 2xl:m-3 w-80 ">
-    //       <UserCardSkeleton />
-    //     </div>
-    //     <div className="my-2 md:m-2 2xl:m-3 w-80 ">
-    //       <UserCardSkeleton />
-    //     </div>
-    //     <div className="my-2 md:m-2 2xl:m-3 w-80 ">
-    //       <UserCardSkeleton />
-    //     </div>
-    //     <div className="my-2 md:m-2 2xl:m-3 w-80 ">
-    //       <UserCardSkeleton />
-    //     </div>
-    //   </div>
-    // </div>
-    <div>Loading main page</div>
+    <div className="flex min-h-screen flex-col items-center px-0">
+      <h2 className="text-xl font-extralight">
+        <LogoGithubIcon size={32} /> Users
+      </h2>
+      <div className="flex flex-col my-auto space-y-2 text-center">
+        <Spinner />
+        <p>Loading...</p>
+      </div>
+    </div>
   );
 }
