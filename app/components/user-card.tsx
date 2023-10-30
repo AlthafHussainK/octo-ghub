@@ -23,6 +23,7 @@ export default function UserCard(props: UserCardProps) {
           width={72}
           height={72}
           alt="Avatar"
+          quality={20}
         />
       </div>
 
