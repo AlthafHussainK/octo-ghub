@@ -5,7 +5,7 @@ import {
   RepoIcon,
 } from "@primer/octicons-react";
 import Image from "next/image";
-import TwitterIcon from "./TwitterIcon";
+import TwitterIcon from "@/components/twitter-icon";
 
 interface ProfileCardProps {
   fullname: string;
