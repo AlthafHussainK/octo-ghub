@@ -1,10 +1,9 @@
-import BackButton from "../components/back-button";
-import { getUserData } from "../lib/data";
-import { UserData } from "../lib/definitions";
-import ProfileCard from "../components/profile-card";
-
-import ProfileLoading from "./loading";
 import { Suspense } from "react";
+import BackButton from "@/components/back-button";
+import { getUserData } from "@/lib/data";
+import { UserData } from "@/lib/definitions";
+import ProfileCard from "@/components/profile-card";
+import ProfileLoading from "@/[username]/loading";
 
 export async function generateMetadata({
   params,

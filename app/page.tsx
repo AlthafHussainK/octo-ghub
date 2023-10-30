@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { LogoGithubIcon } from "@primer/octicons-react";
-import UsersList from "./users-list";
-import UsersListSkeleton from "./components/users-list-skeleton";
+import UsersList from "@/users-list";
+import UsersListSkeleton from "@/components/users-list-skeleton";
 
 export default async function Home() {
   return (

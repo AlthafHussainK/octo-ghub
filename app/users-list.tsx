@@ -1,7 +1,7 @@
 import Link from "next/link";
-import UserCard from "./components/user-card";
-import { getUsers, getUserData } from "./lib/data";
-import { UserData, User } from "./lib/definitions";
+import UserCard from "@/components/user-card";
+import { getUsers, getUserData } from "@/lib/data";
+import { UserData, User } from "@/lib/definitions";
 
 export default async function UsersList() {
   const data: User[] = await getUsers();
