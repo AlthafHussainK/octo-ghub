@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Table of Contents
+
+- Objective
+- Getting Started
+- Implementation
+- Technical Details
+- Tech Doc
+
+## Objective:
+
+To create a two pages the requirements of each are listed below:
+
+- **User List page** - A default screen which fetches Users from the Github API ([https://api.github.com/users](https://api.github.com/users)) and displays them in a list. For each user you should show their Avatar, First Name, Last Name and Username. Each item in the list should link to the User Details page detailed below.
+- **User Details page** - A screen which shows more detailed information for the selected user. We can show extended profile information (such as company and social handles), a summary on their followers, following and number of public repositories.
 
 ## Getting Started
 
 First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+`npm run dev` or `yarn dev`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000/) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Running unit test
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+`npm test` or `yarn test`
 
-## Learn More
+## Implementation - [Preview Build]
 
-To learn more about Next.js, take a look at the following resources:
+Build: [https://ghub-users.vercel.app/](https://ghub-users.vercel.app/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+There are two routes in the app.
+**Home page (/)**: which displays User cards with Fullname, username and location.
+**Profile Page (/[username])**: which displays more detailed information of the selected user like Fullname, username, bio, followers, following, location, company, twitter handle and number of public repositories.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Loading Pages are added for both pages with react suspense.
+- The metadata is generated dynamically according to the profile
 
-## Deploy on Vercel
+- Entire app is responsive in mobile, tablet, PC and wide screen
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Major components are unit tested
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Technical Details
+
+- **NextJS - v14.0.0** : bootstrapped with `create-next-app`
+
+  - Using App based routing
+  - React server components
+
+- Typescript
+- Tailwind CSS
+- Primer-Octicons: Icon library
+- React Testing Library
+- Jest
+
+## Tech Doc - [WIP]
+
+### File Organization and Convention
+
+- `app/`
+
+  - `layout.tsx` - root layout is the top-most layout in the root app directory. define the <html> and <body> tags and other globally shared UI.
+  - `page.tsx` - Home page which imports UserList components
+  - `user-list.tsx` - Server component with data fetched on the server. Imports UserCard and map with users data
+  - `loading.tsx` , `global-error.tsx` , `global.css`
+  - `app/components/ `: contains reused components
+
+    - `__tests__ /` : contains unit tests of profile-card and user-card components
+
+  - `app/lib/` : Contains functions and types used in application,
+  - `app/[username]/ `: Profile page logics here. contains page.tsx, layout.tsx, error.tsx, loading.tsx
+
+- **Routing**
+
+  - App router
+
+- **Data Fetching**
+
+  - Server side fetching
+
+- **Caching**
+
+  - Request memoization
+  - Data cache
+  - Router cache
+
+- **Rendering**
+
+  - Server Components
+  - Client components
+
+- **Styling**
+
+  - Tailwind CSS
+  - Module CSS:
+
+- **Optimizations**
+
+  - next/image
+  - Metadata - dynamic metadata
+  - EsLint and Prettier
+
+- **Deployment**
+
+  - Deployed on Vercel: [https://ghub-users.vercel.app/](https://ghub-users.vercel.app/)
