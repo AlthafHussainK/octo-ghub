@@ -22,8 +22,6 @@ export default async function UsersList() {
               fullname={user.name}
               username={user.login}
               location={user.location}
-              company={user.company}
-              bio={user.bio}
             />
           </Link>
         </div>
