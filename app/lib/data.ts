@@ -4,7 +4,6 @@ export async function getUsers() {
   const res = await fetch("https://api.github.com/users");
 
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error("Failed to fetch data");
   }
 
