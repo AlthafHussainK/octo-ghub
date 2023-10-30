@@ -11,13 +11,12 @@ export async function getUsers() {
 }
 
 export async function getUserData(username: string) {
-  const options = {
+  const res = await fetch(`https://api.github.com/users/${username}`, {
     headers: {
       accept: "application/vnd.github+json",
       authorization: `Bearer ${TOKEN}`,
     },
-  };
-  const res = await fetch(`https://api.github.com/users/${username}`, options);
+  });
 
   if (!res.ok) {
     throw new Error("Failed to fetch user data");
