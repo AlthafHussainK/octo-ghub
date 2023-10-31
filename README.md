@@ -25,7 +25,7 @@ Running unit test
 
 `npm test` or `yarn test`
 
-## Implementation - [Preview Build]
+## Implementation
 
 Build: [https://ghub-users.vercel.app/](https://ghub-users.vercel.app/)
 
@@ -92,13 +92,13 @@ There are two routes in the app.
 - **Styling**
 
   - Tailwind CSS
-  - Module CSS:
+  - Module CSS: (only used in a spinner component)
 
 - **Optimizations**
 
   - next/image
   - Metadata - dynamic metadata
-  - EsLint and Prettier
+  - EsLint
 
 - **Deployment**
 
