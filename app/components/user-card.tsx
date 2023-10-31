@@ -1,18 +1,21 @@
 import { LocationIcon } from "@primer/octicons-react";
 import Image from "next/image";
+import { getUserData } from "@/lib/data";
 
 interface UserCardProps {
   avatarUrl: string;
-  fullname: string | null;
   username: string;
-  location: string | null;
+  fullname?: string | null;
+  location?: string | null;
 }
 
 const userCardBackground =
   "border rounded-lg drop-shadow-md bg-black/20  bg-opacity-80  border-gray-600";
 
-export default function UserCard(props: UserCardProps) {
-  const { avatarUrl, fullname, username, location } = props;
+export default async function UserCard(props: UserCardProps) {
+  const { avatarUrl, username } = props;
+  const userData = await getUserData(username);
+  const { location, name } = userData;
 
   return (
     <div className={`${userCardBackground} p-4 flex flex-row gap-x-2`}>
@@ -33,7 +36,7 @@ export default function UserCard(props: UserCardProps) {
             data-testid="fullname"
             className="text-xl font-medium text-blue-500 truncate"
           >
-            {fullname || username}
+            {name || username}
           </p>
           <p className="text-md text-slate-400 truncate">{username}</p>
         </div>
