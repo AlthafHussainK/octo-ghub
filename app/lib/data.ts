@@ -1,26 +1,36 @@
+import { cache } from "react";
+
 const TOKEN = process.env.GHUB_API_TOKEN;
 
-export async function getUsers() {
-  const res = await fetch("https://api.github.com/users");
+export const getUsers = cache(async () => {
+  let response = [];
+  try {
+    const data = await fetch("https://api.github.com/users", {
+      headers: {
+        accept: "application/vnd.github+json",
+        authorization: `Bearer ${TOKEN}`,
+      },
+    });
+    response = await data.json();
+  } catch (err) {
+    console.error(err);
+  }
+  return response;
+});
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+export const getUserData = cache(async (username: string) => {
+  let response = [];
+  try {
+    const data = await fetch(`https://api.github.com/users/${username}`, {
+      headers: {
+        accept: "application/vnd.github+json",
+        authorization: `Bearer ${TOKEN}`,
+      },
+    });
+    response = await data.json();
+  } catch (error) {
+    console.error(error);
   }
 
-  return res.json();
-}
-
-export async function getUserData(username: string) {
-  const res = await fetch(`https://api.github.com/users/${username}`, {
-    headers: {
-      accept: "application/vnd.github+json",
-      authorization: `Bearer ${TOKEN}`,
-    },
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch user data");
-  }
-
-  return res.json();
-}
+  return response;
+});

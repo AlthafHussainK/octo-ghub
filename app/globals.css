@@ -19,6 +19,7 @@
 
 body {
   color: rgb(255, 255, 255);
+  background-image: linear-gradient(to right,  rgb(15 23 42), rgb(51 65 85)); 
 }
 
 @media screen and (max-width: 320px) {
