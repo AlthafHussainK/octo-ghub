@@ -9,7 +9,7 @@ interface UserCardProps {
 }
 
 const userCardBackground =
-  "border rounded-lg drop-shadow-md bg-black/20 bg-clip-padding backdrop-filter backdrop-blur-2xl bg-opacity-80  border-gray-600";
+  "border rounded-lg drop-shadow-md bg-black/20  bg-opacity-80  border-gray-600";
 
 export default function UserCard(props: UserCardProps) {
   const { avatarUrl, fullname, username, location } = props;
