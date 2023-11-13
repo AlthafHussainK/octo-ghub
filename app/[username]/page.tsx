@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import BackButton from "@/components/back-button";
-import { getUserData } from "@/lib/data";
-import { UserData } from "@/lib/definitions";
+import { getUserData, getUsers } from "@/lib/data";
+import { User, UserData } from "@/lib/definitions";
 import ProfileCard from "@/components/profile-card";
 import ProfileLoading from "@/[username]/loading";
 
@@ -18,7 +18,13 @@ export async function generateMetadata({
   };
 }
 
-// TODO: generateStaticParams to reduce build time as the pages will be statically generated instead of on-demand at request time
+export async function generateStaticParams() {
+  const users = await getUsers();
+
+  return users.map((user: User) => ({
+    username: user.login,
+  }));
+}
 
 export default async function List({
   params,
